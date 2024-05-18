@@ -1,11 +1,14 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { geMembers } from "../actions/memberActions";
+import MemberCard from "./MemberCard";
 
-const MembersPage = () => {
+const MembersPage = async () => {
+  const members = await geMembers();
   return (
-    <div>
-      <h1 className='text-3xl'>This will be the members page</h1>
-      <Link href='/'>Go back home</Link>
+    <div className="mt-10 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8">
+      {members &&
+        members.map((member) => <MemberCard member={member} key={member.id} />)}
     </div>
-  )
-}
+  );
+};
 export default MembersPage;

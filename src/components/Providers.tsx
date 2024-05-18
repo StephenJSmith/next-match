@@ -8,10 +8,13 @@ import 'react-toastify/dist/ReactToastify.css';
 const Providers = ({ children }: { children: ReactNode }) => {
   return (
     <NextUIProvider>
-      <ToastContainer position='bottom-right' hideProgressBar className='z-50' />
+      <ToastContainer
+        position="bottom-right"
+        hideProgressBar
+        className="z-50"
+      />
       {children}
     </NextUIProvider>
   );
 };
-export default Providers
-;
+export default Providers;
